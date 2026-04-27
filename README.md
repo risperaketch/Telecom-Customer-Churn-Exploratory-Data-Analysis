@@ -38,6 +38,8 @@ Customer churn costs telecom companies billions annually. Acquiring a new custom
 ## Analysis — 10 Questions
 
 ### Q1 — Multiple Lines Distribution
+<img width="940" height="580" alt="image" src="https://github.com/user-attachments/assets/e2ba4c6e-8d33-4af0-b8f9-e6035fef0f02" />
+
 Count of customers by phone line type (No / Yes / No phone service). Reveals upsell opportunity: 48% of customers have only a single line.
 
 **Key finding:** 3,390 single-line customers represent an addressable upsell pool for multiple-line bundle promotions.
@@ -45,6 +47,8 @@ Count of customers by phone line type (No / Yes / No phone service). Reveals ups
 ---
 
 ### Q2 — Contract Type Distribution
+<img width="940" height="580" alt="image" src="https://github.com/user-attachments/assets/8cb4b7af-8898-4408-b24a-5c4c3370a433" />
+
 55% of customers are on month-to-month contracts — the highest-risk contract type for churn.
 
 **Key finding:** Churn rate decreases from 43% (month-to-month) to 3% (two-year) — a 14× difference. Contract length is the single strongest retention lever in the dataset.
@@ -52,6 +56,8 @@ Count of customers by phone line type (No / Yes / No phone service). Reveals ups
 ---
 
 ### Q3 — Contract Type × Internet Service (Grouped Bar)
+<img width="1180" height="700" alt="image" src="https://github.com/user-attachments/assets/cb172081-5117-4a6c-9df3-5d3af8b3286d" />
+
 Fiber optic customers are disproportionately concentrated in month-to-month contracts — combining the highest churn-risk service type with the highest churn-risk contract.
 
 **Key finding:** Fiber optic + month-to-month is the highest-priority retention target segment.
@@ -66,6 +72,7 @@ Two-panel visualization: raw customer counts by churn, and churn rate percentage
 | Month-to-month | ~43% |
 | One year | ~11% |
 | Two year | ~3% |
+<img width="1660" height="608" alt="image" src="https://github.com/user-attachments/assets/0c5f111e-2cdd-4133-8012-3091885358f5" />
 
 **Key finding:** Moving one customer from month-to-month to an annual contract reduces their churn probability by ~75%.
 
@@ -73,6 +80,8 @@ Two-panel visualization: raw customer counts by churn, and churn rate percentage
 
 ### Q5 — Monthly Charges Distribution (Histogram)
 Bimodal distribution with peaks at $18–$30 (basic plans) and $70–$90 (premium plans). Mean ($64.80) slightly exceeds median ($64.43) — mild right skew.
+
+<img width="1060" height="580" alt="image" src="https://github.com/user-attachments/assets/757d1742-a3fc-4d68-b7dc-4f61b2210b71" />
 
 **Key finding:** Two distinct customer pricing segments require separate retention and communication strategies.
 
@@ -87,6 +96,8 @@ Month-to-month customers have the widest pricing spread. Two-year customers are 
 | One year | ~$65 |
 | Two year | ~$60 |
 
+<img width="1780" height="614" alt="image" src="https://github.com/user-attachments/assets/91da9d47-1cce-4b37-80a2-74ec78466403" />
+
 ---
 
 ### Q7 — Monthly Charges by Churn Status (Box Plot + Bar Chart)
@@ -96,6 +107,9 @@ Churned customers pay $13.17 more per month on average (+21.5%).
 |---|---|---|
 | Retained (No) | $61.27 | $64.43 |
 | Churned (Yes) | $74.44 | $79.65 |
+
+<img width="1419" height="614" alt="image" src="https://github.com/user-attachments/assets/f5abafb3-4d6b-4bd7-b65a-0f39644f8da0" />
+
 
 **Key finding:** High-charge customers on flexible contracts are the highest churn risk. Price-lock offers for customers paying >$70/month on month-to-month plans have measurable ROI.
 
@@ -109,12 +123,16 @@ Side-by-side box plots comparing the pricing-churn relationship for senior vs. n
 | Non-senior | ~23% |
 | Senior citizen | ~42% |
 
+<img width="1660" height="614" alt="image" src="https://github.com/user-attachments/assets/28bfb23f-cd4a-4206-a460-bbc7844dd009" />
+
 **Key finding:** Senior citizens are 83% more likely to churn. A dedicated senior retention program with age-appropriate pricing and support would address the highest demographic churn risk.
 
 ---
 
 ### Q9 — Monthly Charges vs. Tenure (Scatter Plot)
 Pearson correlation r = 0.25 — weak positive relationship. New customers paying high rates are the most at-risk cohort: they cluster in the low-tenure, high-charge zone that dominates churned customers.
+
+<img width="1660" height="614" alt="image" src="https://github.com/user-attachments/assets/e2ebb501-24b2-4035-bbc1-3818d7dbe23a" />
 
 **Key finding:** First 6-month onboarding programs for high-charge customers would reduce the most common early-exit pattern visible in the data.
 
@@ -133,11 +151,13 @@ Pearson correlation r = 0.25 — weak positive relationship. New customers payin
 
 ---
 
-## Bug Fixed — Question 10
+##  Question 10
 
 | Issue | Original Code | Fix Applied |
 |---|---|---|
 | `KeyError: 'Sentiment'` | `df.pivot_table(..., index='Sentiment')` — column does not exist | Derived `Sentiment` from `Churn` using `df['Churn'].map({'Yes':'Negative','No':'Positive'})` before building the pivot table |
+
+<img width="1660" height="614" alt="image" src="https://github.com/user-attachments/assets/a1fe27c4-ec4c-47a8-ad45-f54a2b9f1f65" />
 
 ---
 
